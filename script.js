@@ -2,55 +2,91 @@ const start = document.querySelector('#start-position')
 const spositions = {
   0: {
     name: 'closed guard',
-    next_top: [
+    offense: [
       5
     ],
-    next_bottom: [
+    defense: [
 
     ]
   },
   1: {
     name: 'side mount',
-    next_top: [
+    offense: [
 
     ],
-    next_bottom: [
+    defense: [
 
     ]
   },
   2: {
     name: 'half guard',
-    next_top: [
+    offence: [
       3
     ],
-    next_bottom: [
+    defense: [
 
     ]
   },
   3: {
     name: 'full mount',
-    next_top: [
+    offense: [
       
     ],
-    next_bottom: [
+    defense: [
 
     ]
   },
   4: {
     name: 'back attack',
-    next_top: [
+    offense: [
 
     ],
-    next_bottom: [
+    defense: [
 
     ]
   },
   5: {
     name: 'leg pass over knee',
-    next_top: [
+    offense: [
       1
     ],
-    next_bottom: [
+    defense: [
+      
+    ]
+  },
+  6: {
+    name: 'cross collar choke (underhand / underhand)',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
+  },
+  7: {
+    name: 'cross collar choke (overhand / overhand)',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
+  },
+  8: {
+    name: 'cross collar choke (underhand / overhand)',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
+  },
+  9: {
+    name: 'x-guard pass',
+    offense: [
+      
+    ],
+    defense: [
       
     ]
   }
