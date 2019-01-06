@@ -6,7 +6,7 @@ const spositions = {
       5
     ],
     defense: [
-
+      6
     ]
   },
   1: {
@@ -39,10 +39,10 @@ const spositions = {
   4: {
     name: 'back attack',
     offense: [
-
+      
     ],
     defense: [
-
+      9, 15
     ]
   },
   5: {
@@ -87,7 +87,7 @@ const spositions = {
       14
     ],
     defense: [
-      
+      15
     ]
   },
   10: {
@@ -136,7 +136,22 @@ const spositions = {
     ]
   },
   15: {
-    name: 'side shrimp' 
+    name: 'side shrimp',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
+  },
+  16: {
+    name: 'triangle choke',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
   }
 }
 
