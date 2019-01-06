@@ -1,5 +1,8 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-
-// prints "hi" in the browser's dev tools console
-console.log('hi');
+if (pl.type.is_substitution(answer)) {
+  // Get the value of the food
+  var food = answer.lookup("X");
+  // Get the person
+  var person = name != "Y" ? name : answer.lookup("Y");
+  // Show answer
+  result.innerHTML = result.innerHTML + "<div>" + person + " likes " + food + "</div>";
+}
