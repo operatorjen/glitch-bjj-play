@@ -3,7 +3,7 @@ const spositions = {
   0: {
     name: 'closed guard',
     next_top: [
-
+      5
     ],
     next_bottom: [
 
@@ -21,15 +21,16 @@ const spositions = {
   2: {
     name: 'half guard',
     next_top: [
-
+      3
     ],
     next_bottom: [
 
     ]
   },
-  3: 'full mount',
+  3: {
+    name: 'full mount',
     next_top: [
-
+      
     ],
     next_bottom: [
 
@@ -42,6 +43,15 @@ const spositions = {
     ],
     next_bottom: [
 
+    ]
+  },
+  5: {
+    name: 'leg pass over knee',
+    next_top: [
+      1
+    ],
+    next_bottom: [
+      
     ]
   }
 }
