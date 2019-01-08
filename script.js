@@ -12,16 +12,16 @@ const spositions = {
   1: {
     name: 'side mount',
     offense: [
-      3
+      3, 17
     ],
     defense: [
-
+      15
     ]
   },
   2: {
     name: 'half guard',
     offence: [
-      3
+      0, 3
     ],
     defense: [
 
@@ -30,7 +30,7 @@ const spositions = {
   3: {
     name: 'full mount',
     offense: [
-      11, 12, 13
+      11, 12, 13, 17
     ],
     defense: [
 
@@ -146,6 +146,15 @@ const spositions = {
   },
   16: {
     name: 'triangle choke',
+    offense: [
+      
+    ],
+    defense: [
+      
+    ]
+  },
+  17: {
+    name: 'cross body choke',
     offense: [
       
     ],
