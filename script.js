@@ -1,7 +1,9 @@
 const start = document.querySelector('#start-position')
+const spositionsEl = document.querySelector('#start-positions')
 const spositions = {
   0: {
     name: 'closed guard',
+    start: true,
     offense: [
       5
     ],
@@ -11,6 +13,7 @@ const spositions = {
   },
   1: {
     name: 'side mount',
+    start: false,
     offense: [
       3, 17
     ],
@@ -20,6 +23,7 @@ const spositions = {
   },
   2: {
     name: 'half guard',
+    start: false,
     offence: [
       0, 3
     ],
@@ -29,6 +33,7 @@ const spositions = {
   },
   3: {
     name: 'full mount',
+    start: false,
     offense: [
       11, 12, 13, 17
     ],
@@ -38,6 +43,7 @@ const spositions = {
   },
   4: {
     name: 'back attack',
+    start: true,
     offense: [
       
     ],
@@ -47,6 +53,7 @@ const spositions = {
   },
   5: {
     name: 'leg pass over knee',
+    start: false,
     offense: [
       1
     ],
@@ -56,6 +63,7 @@ const spositions = {
   },
   6: {
     name: 'cross collar choke (underhand / underhand)',
+    start: false,
     offense: [
       
     ],
@@ -65,6 +73,7 @@ const spositions = {
   },
   7: {
     name: 'cross collar choke (overhand / overhand)',
+    start: false,
     offense: [
       
     ],
@@ -74,6 +83,7 @@ const spositions = {
   },
   8: {
     name: 'cross collar choke (underhand / overhand)',
+    start: false,
     offense: [
       
     ],
@@ -83,6 +93,7 @@ const spositions = {
   },
   9: {
     name: 'turtle',
+    start: true,
     offense: [
       14
     ],
@@ -92,6 +103,7 @@ const spositions = {
   },
   10: {
     name: 'bear hug',
+    start: true,
     offense: [
       
     ],
@@ -101,6 +113,7 @@ const spositions = {
   },
   11: {
     name: 'armbar',
+    start: false,
     offense: [
       
     ],
@@ -110,6 +123,7 @@ const spositions = {
   },
   12: {
     name: 'armlock (americana)',
+    start: false,
     offense: [
       
     ],
@@ -119,6 +133,7 @@ const spositions = {
   },
   13: {
     name: 'armlock (kimura)',
+    start: false,
     offense: [
       
     ],
@@ -128,6 +143,7 @@ const spositions = {
   },
   14: {
     name: 'seatbelt choke',
+    start: false,
     offense: [
       
     ],
@@ -137,6 +153,7 @@ const spositions = {
   },
   15: {
     name: 'side shrimp',
+    start: false,
     offense: [
       
     ],
@@ -146,6 +163,7 @@ const spositions = {
   },
   16: {
     name: 'triangle choke',
+    start: false,
     offense: [
       
     ],
@@ -155,6 +173,7 @@ const spositions = {
   },
   17: {
     name: 'cross body choke',
+    start: false,
     offense: [
       
     ],
@@ -165,8 +184,17 @@ const spositions = {
 }
 
 function renderStartPositions() {
-  const spositions = getStartPositions() 
+  for (let k in spositions) {
+    if (spositions[k].start) {
+      let pos = document.createElement('li')
+      pos.setAttribute('data-value', k)
+      pos.textContent = spositions[k].name
+      spositionsEl.appendChild(pos) 
+    }
+  }
 }
+
+renderStartPositions()
 
 /*
 if (answer) {
