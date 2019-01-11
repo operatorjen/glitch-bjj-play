@@ -1,3 +1,4 @@
+% Set up rules
 nextMoves(0, 5).
 nextMoves(0, 6).
 nextMoves(1, 3).
