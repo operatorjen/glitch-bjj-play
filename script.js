@@ -166,6 +166,7 @@ const spositions = {
   15: {
     name: 'side shrimp',
     start: false,
+    submit: false,
     offense: [
       
     ],
@@ -176,6 +177,7 @@ const spositions = {
   16: {
     name: 'triangle choke',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -186,6 +188,7 @@ const spositions = {
   17: {
     name: 'cross body choke',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -196,6 +199,7 @@ const spositions = {
   18: {
     name: 't-position hip throw',
     start: false,
+    submit: false,
     offense: [
       0, 1, 2
     ],
@@ -206,6 +210,7 @@ const spositions = {
   19: {
     name: 'double leg takedown',
     start: true,
+    submit: false,
     offense: [
       0, 1, 2
     ],
@@ -227,6 +232,20 @@ function renderStartPositions() {
 }
 
 renderStartPositions()
+
+//////////////////////////////////////////
+const session = pl.create()
+
+// load program
+
+const parsed = session.consult('bjj.pl')
+
+if (!parsed) {
+  throw new Error('Invalid prolog', parsed)  
+}
+
+// session.query()
+// session.answer(x => console.log(x))
 
 /*
 if (answer) {
