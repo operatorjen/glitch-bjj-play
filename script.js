@@ -93,7 +93,8 @@ function renderStartPositions() {
       pos.onclick = function (ev) {
         currentPosition = ev.target.getAttribute('data-value')  
         console.log(currentPosition)
-        isNextMove(currentPosition)
+        currentPosition = currentPosition != null ? currentPosition : 'Y'
+        nextMoves(currentPosition)
       }
       spositionsEl.appendChild(pos) 
     }
@@ -104,18 +105,18 @@ renderStartPositions()
 
 //////////////////////////////////////////
 
-function isNextMove(id) {
+function nextMoves(id) {
   const session = pl.create(1000)
   // attack/counterattack
   const positions = document.querySelector('#positions').value
   session.consult('positions')
-  session.query("isNextMove(" + 5 + ", X).")
+  session.query(`nextMoves(id, X).`)
   session.answers(show(id), 1000)
 }
 
 function show(name) {
   return function (answer) {
-    console.log(answer, '!!')
+    console.log(name, answer, '!!')
     if (pl.type.is_substitution(answer)) {
       const next = answer.lookup('X')
       const res = name != 'Y' ? name : answer.lookup('Y')
