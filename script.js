@@ -1,3 +1,5 @@
+/* global pl */
+
 const spositionsEl = document.querySelector('#start-positions')
 const spositions = {
   0: {
@@ -109,33 +111,16 @@ function nextMoves(id) {
   const session = pl.create()
 	const program = document.getElementById('positions').value
 	session.consult(program)
-	session.query(`nextMoves(${name}, X).`)
-	session.answers(show(name))
+	session.query(`nextMoves(${id}, X).`)
+	session.answers(show(id))
 }
 
 function show(id) {
   return function (answer) {
-    pl.
-    /*if (pl.type.is_substitution(answer)) {
+    if (pl.type.is_substitution(answer)) {
       const next = answer.lookup('X')
       const previous = id !== 'Y' ? id : answer.lookup('Y')
-      return console.log('>>> ',answer)
+      return console.log('>>> ', spositions[answer.links.X.value].name)
     }
   }
 }
-
-// session.query()
-// session.answer(x => console.log(x))
-
-/*
-if (answer) {
-  if (pl.type.is_substitution(answer)) {
-    // Get the value of the food
-    var food = answer.lookup("X");
-    // Get the person
-    var person = name != "Y" ? name : answer.lookup("Y");
-    // Show answer
-    result.innerHTML = result.innerHTML + "<div>" + person + " likes " + food + "</div>";
-  }
-}
-*/
