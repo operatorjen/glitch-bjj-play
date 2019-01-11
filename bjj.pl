@@ -1,4 +1,25 @@
 % Set up rules
+nameMap(0, 'closed guard').
+nameMap(1, 'side mount').
+nameMap(2, 'half guard').
+nameMap(3, 'full mount').
+nameMap(4, 'back attack').
+nameMap(5, 'leg pass over knee').
+nameMap(6, 'cross collar choke (underhand / underhand)').
+nameMap(7, 'cross collar choke (overhand / overhand)').
+nameMap(8, 'cross collar choke (underhand / overhand)').
+nameMap(9, 'turtle').
+nameMap(10, 'front bear hug (arms not free)').
+nameMap(11, 'armbar').
+nameMap(12, 'armlock (americana)').
+nameMap(13, 'armlock (kimura)').
+nameMap(14, 'seatbelt choke').
+nameMap(15, 'side shrimp').
+nameMap(16, 'triangle choke').
+nameMap(17, 'cross body choke').
+nameMap(18, 't-position hip throw').
+nameMap(19, 'double leg takedown').
+
 nextMoves(0, 5).
 nextMoves(0, 6).
 nextMoves(1, 3).
@@ -38,6 +59,3 @@ nextMoves(18, 2).
 nextMoves(19, 0).
 nextMoves(19, 1).
 nextMoves(19, 2).
-
-init :-
-  
