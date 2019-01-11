@@ -114,7 +114,13 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
     
-    let restart = document.createElement
+    let restart = document.createElement('button')
+    restart.textContent = 'restart'
+    restart.onclick = function (ev) {
+      ev.preventDefault()
+      location.reload()
+    }
+    pos.appendChild(restart)
   }
   return pos
 }
