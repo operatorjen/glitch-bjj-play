@@ -91,21 +91,27 @@ let currentRow = 0
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
-  pos.textContent = spositions[id].name
-  pos.onclick = function (ev) {
-    // set up next row
-    currentRow ++
-    let row = document.createElement('ul')
-    row.setAttribute('data-row', currentRow)
-    rows.appendChild(row)
+  if (id && spositions[id]) {
+    pos.textContent = spositions[id].name
+    pos.onclick = function (ev) {
+      // set up next row
+      let row = document.createElement('ul')
+      currentRow++
+      row.setAttribute('data-row', currentRow)
+      rows.appendChild(row)
+      console.log(currentRow, row.getAttribute('data-row'))
+      if (currentRow === parseInt(row.getAttribute('data-row'), 10)) {
+        currentPosition = ev.target.getAttribute('data-value')  
+        console.log(currentPosition)
 
-    if (currentRow === parseInt(row.getAttribute('data-row'), 10)) {
-      currentPosition = ev.target.getAttribute('data-value')  
-      console.log(currentPosition)
-
-      currentPosition = currentPosition != null ? currentPosition : 'Y'
-      nextMoves(currentPosition)
+        currentPosition = currentPosition != null ? currentPosition : 'Y'
+        nextMoves(currentPosition)
+      }
     }
+  } else {
+    // submission
+    currentPosition = -1
+    pos.textContent = 'SUBMISSION!'
   }
   return pos
 }
@@ -138,6 +144,7 @@ function show(id) {
       const previous = id !== 'Y' ? id : answer.lookup('Y')
       //return console.log('>>> ', spositions[answer.links.X.value].name)
       let pos = generateItem(answer.links.X.value)
+      console.log('>>',currentRow)
       document.querySelector(`ul[data-row="${currentRow}"]`).appendChild(pos)
     }
   }
