@@ -1,6 +1,7 @@
 /* global pl */
 
 const spositionsEl = document.querySelector('#start-positions')
+const rows = document.querySelector('#rows')
 const spositions = {
   0: {
     name: 'closed guard',
@@ -92,16 +93,15 @@ function generateItem(id) {
   pos.setAttribute('data-value', id)
   pos.textContent = spositions[id].name
   pos.onclick = function (ev) {
-    console.log(currentRow, parseInt(document.querySelector(`ul[data-row="${currentRow}"]`), 10))
-    if (currentRow == parseInt(document.querySelector(`ul[data-row="${currentRow}"]`), 10)) {
+    // set up next row
+    currentRow ++
+    let row = document.createElement('ul')
+    row.setAttribute('data-row', currentRow)
+    rows.appendChild(row)
+
+    if (currentRow === parseInt(row.getAttribute('data-row'), 10)) {
       currentPosition = ev.target.getAttribute('data-value')  
       console.log(currentPosition)
-
-      // set up next row
-      currentRow ++
-      let row = document.createElement('ul')
-      row.setAttribute('data-row', currentRow)
-      document.body.appendChild(row)
 
       currentPosition = currentPosition != null ? currentPosition : 'Y'
       nextMoves(currentPosition)
@@ -136,8 +136,8 @@ function show(id) {
     if (pl.type.is_substitution(answer)) {
       const next = answer.lookup('X')
       const previous = id !== 'Y' ? id : answer.lookup('Y')
-      return console.log('>>> ', spositions[answer.links.X.value].name)
-      let pos = generateItem(id)
+      //return console.log('>>> ', spositions[answer.links.X.value].name)
+      let pos = generateItem(answer.links.X.value)
       document.querySelector(`ul[data-row="${currentRow}"]`).appendChild(pos)
     }
   }
