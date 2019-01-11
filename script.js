@@ -244,16 +244,26 @@ renderStartPositions()
 //////////////////////////////////////////
 
 function isNextMove(id) {
-  const session = pl.create()
+  const session = pl.create(1000)
   // attack/counterattack
   if (currentPosition > 0) {
     session.consult('bjj.pl')
     session.query(`isNextMove(${id}, X).`)
-    return console.log(session.answers(id))
+    return session.answers(show(id), 1000)
   }
-  
+
   // submission
   return console.log(`SUBMISSION ${session.answers(id)}`)
+}
+
+function show(name) {
+  return function (answer) {
+    if (pl.type.is_substitution(answer)) {
+      const next = answer.lookup('X')
+      const res = name != 'Y' ? name : answer.lookup('Y')
+      return console.log(res)
+    }
+  }
 }
 
 // session.query()
