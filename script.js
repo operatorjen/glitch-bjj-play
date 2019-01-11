@@ -105,16 +105,12 @@ renderStartPositions()
 //////////////////////////////////////////
 
 function isNextMove(id) {
-  const session = pl.create()
+  const session = pl.create(1000)
   // attack/counterattack
   const positions = document.querySelector('#positions').value
   session.consult('positions')
-  session.query(`isNextMove(${id}, X).`)
-  console.log(id)
-  session.answers((id) => {
-    
-  })
-  return console.log(ans)
+  session.query("isNextMove(" + 5 + ", X).")
+  session.answers(show(id), 1000)
 }
 
 function show(name) {
