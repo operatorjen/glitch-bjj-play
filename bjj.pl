@@ -38,3 +38,6 @@ nextMoves(18, 2).
 nextMoves(19, 0).
 nextMoves(19, 1).
 nextMoves(19, 2).
+
+init :-
+  

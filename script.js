@@ -2,6 +2,11 @@
 
 const spositionsEl = document.querySelector('#start-positions')
 const rows = document.querySelector('#rows')
+const program = document.getElementById('positions').value
+
+let currentPosition = null
+let currentRow = 0
+
 const spositions = {
   0: {
     name: 'closed guard',
@@ -85,9 +90,6 @@ const spositions = {
   }
 }
 
-let currentPosition = null
-let currentRow = 0
-
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
@@ -136,25 +138,18 @@ function renderStartPositions() {
 
 renderStartPositions()
 
-//////////////////////////////////////////
-
 function nextMoves(id) {
   const session = pl.create()
-	const program = document.getElementById('positions').value
 	session.consult(program)
 	session.query(`nextMoves(${id}, X).`)
 	session.answers(show(id))
 }
 
 function show(id) {
-  return function (answer) {
+  return (answer => {
     if (pl.type.is_substitution(answer)) {
-      const next = answer.lookup('X')
-      const previous = id !== 'Y' ? id : answer.lookup('Y')
-      //return console.log('>>> ', spositions[answer.links.X.value].name)
       let pos = generateItem(answer.links.X.value)
-      console.log('>>',currentRow)
       document.querySelector(`ul[data-row="${currentRow}"]`).appendChild(pos)
     }
-  }
+  })
 }
