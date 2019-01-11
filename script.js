@@ -91,7 +91,7 @@ let currentRow = 0
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
-  if (id && spositions[id]) {
+  if (id > -1 && spositions[id]) {
     pos.textContent = spositions[id].name
     pos.onclick = function (ev) {
       // set up next row
@@ -100,7 +100,7 @@ function generateItem(id) {
       row.setAttribute('data-row', currentRow)
       rows.appendChild(row)
       console.log(currentRow, row.getAttribute('data-row'))
-      if (currentRow === parseInt(row.getAttribute('data-row'), 10)) {
+      if (currentRow === parseInt(r.getAttribute('data-row'), 10)) {
         currentPosition = ev.target.getAttribute('data-value')  
         console.log(currentPosition)
 
