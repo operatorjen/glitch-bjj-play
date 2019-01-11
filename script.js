@@ -105,22 +105,20 @@ renderStartPositions()
 
 //////////////////////////////////////////
 
-function nextMoves(id) {
+function nextMoves(id = 'sam') {
   const session = pl.create(1000)
-  // attack/counterattack
-  const positions = document.querySelector('#positions').value
-  session.consult('positions')
-  session.query(`nextMoves(id, X).`)
-  session.answers(show(id), 1000)
+	const program = document.getElementById('positions').value
+	session.consult(program)
+	session.query(`nextMoves(${name}, X).`)
+	session.answers(show(name), 1000)
 }
 
 function show(name) {
   return function (answer) {
-    console.log(name, answer, '!!')
     if (pl.type.is_substitution(answer)) {
       const next = answer.lookup('X')
       const res = name != 'Y' ? name : answer.lookup('Y')
-      console.log('>>> ', res)
+      console.log('>>> ', next)
     }
   }
 }
