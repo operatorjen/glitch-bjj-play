@@ -220,12 +220,17 @@ const spositions = {
   }
 }
 
+let currentPosition = null
+
 function renderStartPositions() {
   for (let k in spositions) {
     if (spositions[k].start) {
       let pos = document.createElement('li')
       pos.setAttribute('data-value', k)
       pos.textContent = spositions[k].name
+      pos.onclick = function (ev) {
+        currentPosition = ev.target.getAttribute('data-value')  
+      }
       spositionsEl.appendChild(pos) 
     }
   }
@@ -234,14 +239,14 @@ function renderStartPositions() {
 renderStartPositions()
 
 //////////////////////////////////////////
-const session = pl.create()
 
-// load program
-
-const parsed = session.consult('bjj.pl')
-
-if (!parsed) {
-  throw new Error('Invalid prolog', parsed)  
+function isNextMove(id) {
+  const session = pl.create()
+  if (currentPosition + 1 > 0) {
+    session.consult('bjj.pl')
+    session.query(`isNextMove(${id}, X).`)
+    console.log(session.answers(id))
+  }
 }
 
 // session.query()
