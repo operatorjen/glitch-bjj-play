@@ -93,10 +93,12 @@ function renderStartPositions() {
       pos.setAttribute('data-value', k)
       pos.textContent = spositions[k].name
       pos.onclick = function (ev) {
-        currentPosition = ev.target.getAttribute('data-value')  
-        console.log(currentPosition)
-        currentPosition = currentPosition != null ? currentPosition : 'Y'
-        nextMoves(currentPosition)
+        if (currentRow === parseInt(ev.target.parent.getAttribute('data-row'), 10)) {
+          currentPosition = ev.target.getAttribute('data-value')  
+          console.log(currentPosition)
+          currentPosition = currentPosition != null ? currentPosition : 'Y'
+          nextMoves(currentPosition)
+        }
       }
       spositionsEl.appendChild(pos) 
     }
@@ -106,6 +108,8 @@ function renderStartPositions() {
 renderStartPositions()
 
 //////////////////////////////////////////
+
+let currentRow = 0
 
 function nextMoves(id) {
   const session = pl.create()

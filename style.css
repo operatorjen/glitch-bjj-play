@@ -20,3 +20,7 @@ li {
   width: 200px;
   color: rgba(200, 230, 210, 0.7);
 }
+
+textarea {
+  display: none;  
+}
