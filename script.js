@@ -2,200 +2,75 @@ const spositionsEl = document.querySelector('#start-positions')
 const spositions = {
   0: {
     name: 'closed guard',
-    start: true,
-    submit: false,
-    offense: [
-      5
-    ],
-    defense: [
-      6
-    ]
+    start: true
   },
   1: {
     name: 'half mount',
-    start: false,
-    submit: false,
-    offense: [
-      3, 17
-    ],
-    defense: [
-      15
-    ]
+    start: false
   },
   2: {
     name: 'half guard',
-    start: false,
-    submit: false,
-    offence: [
-      0, 3
-    ],
-    defense: [
-      15
-    ]
+    start: false
   },
   3: {
     name: 'full mount',
-    start: false,
-    submit: false,
-    offense: [
-      6, 7, 8, 11, 12, 13, 17
-    ],
-    defense: [
-      15
-    ]
+    start: false
   },
   4: {
     name: 'back attack',
-    start: true,
-    submit: false,
-    offense: [
-      
-    ],
-    defense: [
-      9, 15
-    ]
+    start: true
   },
   5: {
     name: 'leg pass over knee',
-    start: false,
-    submit: false,
-    offense: [
-      1
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   6: {
     name: 'cross collar choke (underhand / underhand)',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   7: {
     name: 'cross collar choke (overhand / overhand)',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   8: {
     name: 'cross collar choke (underhand / overhand)',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   9: {
     name: 'turtle',
-    start: true,
-    offense: [
-      14
-    ],
-    defense: [
-      15
-    ]
+    start: true
   },
   10: {
     name: 'front bear hug (arms not free)',
-    start: true,
-    submit: false,
-    offense: [
-
-    ],
-    defense: [
-      18
-    ]
+    start: true
   },
   11: {
     name: 'armbar',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   12: {
     name: 'armlock (americana)',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   13: {
     name: 'armlock (kimura)',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   14: {
     name: 'seatbelt choke',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   15: {
     name: 'side shrimp',
-    start: false,
-    submit: false,
-    offense: [
-      
-    ],
-    defense: [
-      1
-    ]
+    start: false
   },
   16: {
     name: 'triangle choke',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   17: {
     name: 'cross body choke',
-    start: false,
-    submit: true,
-    offense: [
-      
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   18: {
     name: 't-position hip throw',
