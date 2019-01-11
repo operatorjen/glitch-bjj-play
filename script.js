@@ -85,21 +85,35 @@ const spositions = {
 }
 
 let currentPosition = null
+let currentRow = 0
+
+function generateItem(id) {
+  let pos = document.createElement('li')
+  pos.setAttribute('data-value', id)
+  pos.textContent = spositions[id].name
+  pos.onclick = function (ev) {
+    console.log(currentRow, parseInt(document.querySelector(`ul[data-row="${currentRow}"]`), 10))
+    if (currentRow == parseInt(document.querySelector(`ul[data-row="${currentRow}"]`), 10)) {
+      currentPosition = ev.target.getAttribute('data-value')  
+      console.log(currentPosition)
+
+      // set up next row
+      currentRow ++
+      let row = document.createElement('ul')
+      row.setAttribute('data-row', currentRow)
+      document.body.appendChild(row)
+
+      currentPosition = currentPosition != null ? currentPosition : 'Y'
+      nextMoves(currentPosition)
+    }
+  }
+  return pos
+}
 
 function renderStartPositions() {
   for (let k in spositions) {
     if (spositions[k].start) {
-      let pos = document.createElement('li')
-      pos.setAttribute('data-value', k)
-      pos.textContent = spositions[k].name
-      pos.onclick = function (ev) {
-        if (currentRow === parseInt(ev.target.parent.getAttribute('data-row'), 10)) {
-          currentPosition = ev.target.getAttribute('data-value')  
-          console.log(currentPosition)
-          currentPosition = currentPosition != null ? currentPosition : 'Y'
-          nextMoves(currentPosition)
-        }
-      }
+      let pos = generateItem(k)
       spositionsEl.appendChild(pos) 
     }
   }
@@ -108,8 +122,6 @@ function renderStartPositions() {
 renderStartPositions()
 
 //////////////////////////////////////////
-
-let currentRow = 0
 
 function nextMoves(id) {
   const session = pl.create()
@@ -125,6 +137,8 @@ function show(id) {
       const next = answer.lookup('X')
       const previous = id !== 'Y' ? id : answer.lookup('Y')
       return console.log('>>> ', spositions[answer.links.X.value].name)
+      let pos = generateItem(id)
+      document.querySelector(`ul[data-row="${currentRow}"]`).appendChild(pos)
     }
   }
 }
