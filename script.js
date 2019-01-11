@@ -74,25 +74,11 @@ const spositions = {
   },
   18: {
     name: 't-position hip throw',
-    start: false,
-    submit: false,
-    offense: [
-      0, 1, 2
-    ],
-    defense: [
-      
-    ]
+    start: false
   },
   19: {
     name: 'double leg takedown',
-    start: true,
-    submit: false,
-    offense: [
-      0, 1, 2
-    ],
-    defense: [
-      
-    ]
+    start: true
   }
 }
 
@@ -119,24 +105,25 @@ renderStartPositions()
 //////////////////////////////////////////
 
 function isNextMove(id) {
-  const session = pl.create(1000)
+  const session = pl.create()
   // attack/counterattack
-  if (currentPosition > 0) {
-    session.consult('bjj.pl')
-    session.query(`isNextMove(${id}, X).`)
-    return session.answers(show(id), 1000)
-  }
-
-  // submission
-  return console.log(`SUBMISSION ${session.answers(id)}`)
+  const positions = document.querySelector('#positions').value
+  session.consult('positions')
+  session.query(`isNextMove(${id}, X).`)
+  console.log(id)
+  session.answers((id) => {
+    
+  })
+  return console.log(ans)
 }
 
 function show(name) {
   return function (answer) {
+    console.log(answer, '!!')
     if (pl.type.is_substitution(answer)) {
       const next = answer.lookup('X')
       const res = name != 'Y' ? name : answer.lookup('Y')
-      return console.log(res)
+      console.log('>>> ', res)
     }
   }
 }
