@@ -28,17 +28,17 @@ const spositions = {
       0, 3
     ],
     defense: [
-
+      15
     ]
   },
   3: {
     name: 'full mount',
     start: false,
     offense: [
-      11, 12, 13, 17
+      6, 7, 8, 11, 12, 13, 17
     ],
     defense: [
-
+      15
     ]
   },
   4: {
@@ -102,13 +102,13 @@ const spositions = {
     ]
   },
   10: {
-    name: 'bear hug',
+    name: 'front bear hug (arms not free)',
     start: true,
     offense: [
-      
+
     ],
     defense: [
-      
+      18
     ]
   },
   11: {
@@ -176,6 +176,26 @@ const spositions = {
     start: false,
     offense: [
       
+    ],
+    defense: [
+      
+    ]
+  },
+  18: {
+    name: 't-position hip throw',
+    start: false,
+    offense: [
+      0, 1, 2
+    ],
+    defense: [
+      
+    ]
+  },
+  19: {
+    name: 'double leg takedown',
+    start: true,
+    offense: [
+      0, 1, 2
     ],
     defense: [
       
