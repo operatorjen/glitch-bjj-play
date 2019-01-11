@@ -12,7 +12,7 @@ const spositions = {
     ]
   },
   1: {
-    name: 'side mount',
+    name: 'half mount',
     start: false,
     submit: false,
     offense: [
@@ -112,6 +112,7 @@ const spositions = {
   10: {
     name: 'front bear hug (arms not free)',
     start: true,
+    submit: false,
     offense: [
 
     ],
@@ -171,7 +172,7 @@ const spositions = {
       
     ],
     defense: [
-      
+      1
     ]
   },
   16: {
@@ -230,6 +231,8 @@ function renderStartPositions() {
       pos.textContent = spositions[k].name
       pos.onclick = function (ev) {
         currentPosition = ev.target.getAttribute('data-value')  
+        console.log(currentPosition)
+        isNextMove(currentPosition)
       }
       spositionsEl.appendChild(pos) 
     }
@@ -242,11 +245,15 @@ renderStartPositions()
 
 function isNextMove(id) {
   const session = pl.create()
-  if (currentPosition + 1 > 0) {
+  // attack/counterattack
+  if (currentPosition > 0) {
     session.consult('bjj.pl')
     session.query(`isNextMove(${id}, X).`)
-    console.log(session.answers(id))
+    return console.log(session.answers(id))
   }
+  
+  // submission
+  return console.log(`SUBMISSION ${session.answers(id)}`)
 }
 
 // session.query()
