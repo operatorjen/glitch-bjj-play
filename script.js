@@ -1,4 +1,3 @@
-const start = document.querySelector('#start-position')
 const spositionsEl = document.querySelector('#start-positions')
 const spositions = {
   0: {
