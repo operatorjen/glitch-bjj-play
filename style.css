@@ -1,7 +1,7 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-family: monospace;
   margin: 0;
   padding: 10px;
   background-color: rgb(20, 210, 220);
@@ -19,12 +19,20 @@ ul {
 
 li {
   padding: 5px 3px;
-  margin: 1px;
-  background-color: rgba(100, 130, 110, 0.8);
-  width: 200px;
-  color: rgba(200, 230, 210, 0.7);
+  text-align: center;
+  margin: 2px;
+  font-size: 1rem;
+  background-color: rgba(200, 230, 210, 0.8);
+  width: 100px;
+  color: #111;
+  border: 2px solid #111;
+  text-transform: uppercase;
 }
 
 textarea {
   display: none;  
+}
+
+.submitted {
+  background-color: rgba(10, 200, 100, 0.8);  
 }

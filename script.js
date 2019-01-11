@@ -8,7 +8,7 @@ const spositions = {
     start: true
   },
   1: {
-    name: 'half mount',
+    name: 'side mount',
     start: false
   },
   2: {
@@ -93,14 +93,14 @@ function generateItem(id) {
   pos.setAttribute('data-value', id)
   if (id > -1 && spositions[id]) {
     pos.textContent = spositions[id].name
+    pos.setAttribute('data-row', currentRow)
     pos.onclick = function (ev) {
       // set up next row
-      let row = document.createElement('ul')
-      currentRow++
-      row.setAttribute('data-row', currentRow)
-      rows.appendChild(row)
-      console.log(currentRow, row.getAttribute('data-row'))
-      if (currentRow === parseInt(r.getAttribute('data-row'), 10)) {
+      if (currentRow === parseInt(this.getAttribute('data-row'), 10)) {
+        let row = document.createElement('ul')
+        currentRow++
+        row.setAttribute('data-row', currentRow)
+        rows.appendChild(row)
         currentPosition = ev.target.getAttribute('data-value')  
         console.log(currentPosition)
 
@@ -111,7 +111,10 @@ function generateItem(id) {
   } else {
     // submission
     currentPosition = -1
+    pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
+    
+    let restart = document.createElement
   }
   return pos
 }
