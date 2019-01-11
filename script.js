@@ -3,6 +3,7 @@ const spositions = {
   0: {
     name: 'closed guard',
     start: true,
+    submit: false,
     offense: [
       5
     ],
@@ -13,6 +14,7 @@ const spositions = {
   1: {
     name: 'side mount',
     start: false,
+    submit: false,
     offense: [
       3, 17
     ],
@@ -23,6 +25,7 @@ const spositions = {
   2: {
     name: 'half guard',
     start: false,
+    submit: false,
     offence: [
       0, 3
     ],
@@ -33,6 +36,7 @@ const spositions = {
   3: {
     name: 'full mount',
     start: false,
+    submit: false,
     offense: [
       6, 7, 8, 11, 12, 13, 17
     ],
@@ -43,6 +47,7 @@ const spositions = {
   4: {
     name: 'back attack',
     start: true,
+    submit: false,
     offense: [
       
     ],
@@ -53,6 +58,7 @@ const spositions = {
   5: {
     name: 'leg pass over knee',
     start: false,
+    submit: false,
     offense: [
       1
     ],
@@ -63,6 +69,7 @@ const spositions = {
   6: {
     name: 'cross collar choke (underhand / underhand)',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -73,6 +80,7 @@ const spositions = {
   7: {
     name: 'cross collar choke (overhand / overhand)',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -83,6 +91,7 @@ const spositions = {
   8: {
     name: 'cross collar choke (underhand / overhand)',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -113,6 +122,7 @@ const spositions = {
   11: {
     name: 'armbar',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -123,6 +133,7 @@ const spositions = {
   12: {
     name: 'armlock (americana)',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -133,6 +144,7 @@ const spositions = {
   13: {
     name: 'armlock (kimura)',
     start: false,
+    submit: true,
     offense: [
       
     ],
@@ -143,6 +155,7 @@ const spositions = {
   14: {
     name: 'seatbelt choke',
     start: false,
+    submit: true,
     offense: [
       
     ],
