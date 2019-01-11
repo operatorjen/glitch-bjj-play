@@ -164,6 +164,10 @@ const spositions = {
   }
 }
 
+function renderStartPositions() {
+  const spositions = getStartPositions() 
+}
+
 /*
 if (answer) {
   if (pl.type.is_substitution(answer)) {
