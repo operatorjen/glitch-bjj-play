@@ -125,12 +125,16 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        ctx.lineTo(Math.abs(Math.sin((id + 1) * 10) * ctx.width), Math.abs(Math.cos((id + 1) * 10) * ctx.height))
-        console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width), Math.abs(Math.cos((id + 1) * 10) * ctx.height))
+        //ctx.beginPath()
+        ctx.arc(Math.abs(Math.sin((id + 1) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
+        ctx.stroke()
+        ctx.lineTo(Math.abs(Math.sin((id + 1) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
+        //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         ctx.strokeWidth = 10
-        ctx.strokeStyle = 'blue'
+        ctx.strokeStyle = `rgba(20, ${(id + 100) * 255}, ${(id + 1) * 155}, 1.0)`
         ctx.stroke()
         //ctx.closePath()
+        //ctx.beginPath()
       }
     }
   } else {
@@ -138,6 +142,11 @@ function generateItem(id) {
     currentPosition = -1
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
+    
+    ctx.beginPath()
+    ctx.fillStyle = `rgba(220, ${(id + 100) * 25}, ${(id + 1) * 155}, 1.0)`
+    ctx.arc(Math.abs(Math.sin((id + 1) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
+    ctx.fill()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'
