@@ -3,6 +3,11 @@
 const spositionsEl = document.querySelector('#start-positions')
 const rows = document.querySelector('#rows')
 const program = document.getElementById('positions').value
+const canvas = document.querySelector('canvas')
+const ctx = canvas.getContext('2d')
+
+canvas.width = ctx.width = window.innerWidth
+canvas.height = ctx.height = window.innerHeight
 
 let currentPosition = null
 let currentRow = 0
@@ -107,6 +112,7 @@ function generateItem(id) {
     pos.onclick = function (ev) {
       // set up next row
       if (currentRow === parseInt(this.getAttribute('data-row'), 10)) {
+        this.className = 'selected'
         let row = document.createElement('ul')
         currentRow++
         row.setAttribute('data-row', currentRow)
