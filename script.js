@@ -87,6 +87,10 @@ const spositions = {
   19: {
     name: 'double leg takedown',
     start: true
+  },
+  20: {
+    name: 'scissor sweep',
+    start: false
   }
 }
 
