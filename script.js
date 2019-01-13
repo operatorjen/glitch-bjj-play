@@ -5,6 +5,7 @@ const rows = document.querySelector('#rows')
 const program = document.getElementById('positions').value
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
+ctx.beginPath()
 
 canvas.width = ctx.width = window.innerWidth
 canvas.height = ctx.height = window.innerHeight
@@ -122,6 +123,14 @@ function generateItem(id) {
 
         currentPosition = currentPosition != null ? currentPosition : 'Y'
         nextMoves(currentPosition)
+        
+        // render selected visual
+        ctx.lineTo(Math.abs(Math.sin((id + 1) * 10) * ctx.width), Math.abs(Math.cos((id + 1) * 10) * ctx.height))
+        console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width), Math.abs(Math.cos((id + 1) * 10) * ctx.height))
+        ctx.strokeWidth = 10
+        ctx.strokeStyle = 'blue'
+        ctx.stroke()
+        //ctx.closePath()
       }
     }
   } else {
