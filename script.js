@@ -91,6 +91,10 @@ const spositions = {
   20: {
     name: 'scissor sweep',
     start: false
+  },
+  21: {
+    name: 'flower sweep',
+    start: false
   }
 }
 
