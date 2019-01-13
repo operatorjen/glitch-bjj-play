@@ -111,7 +111,7 @@ function generateItem(id) {
   pos.setAttribute('data-value', id)
   
   ctx.strokeWidth = 10
-  ctx.strokeStyle = `rgb(${id * 255}, ${id * 255}, ${id * 100})`
+  ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 100})`
   
   if (id > -1 && spositions[id]) {
     pos.textContent = spositions[id].name
@@ -134,9 +134,9 @@ function generateItem(id) {
         //ctx.beginPath()
         ctx.strokeWidth = 10
   
-        ctx.strokeStyle = `rgb(${id * 255}, ${id * 255}, ${id * 100})`
+        ctx.strokeStyle = `rgb(10, ${(id + 1) * 255}, ${(id + 1) * 200})`
         
-        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 1.5), 10, 0, 2 * Math.PI)
+        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * 500), Math.abs(Math.cos((id + 1) * 10) * 500), 50, 0, 2 * Math.PI)
         ctx.stroke()
         //ctx.lineTo(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
