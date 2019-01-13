@@ -109,6 +109,10 @@ ctx.beginPath()
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
+  
+  ctx.strokeWidth = 10
+  ctx.strokeStyle = `rgb(${id * 255}, ${id * 255}, ${id * 100})`
+  
   if (id > -1 && spositions[id]) {
     pos.textContent = spositions[id].name
     pos.setAttribute('data-row', currentRow)
@@ -127,23 +131,16 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        ctx.beginPath()
+        //ctx.beginPath()
         ctx.strokeWidth = 10
+  
         ctx.strokeStyle = `rgb(${id * 255}, ${id * 255}, ${id * 100})`
         
-        ctx.moveTo(ctx.width / 2, ctx.height / 2)
-        
-        if (id > 0) {
-        //  ctx.lineTo(Math.abs(Math.sin(id * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
-        }
-        //ctx.stroke()
-        
-        //ctx.fillStyle = `rgba(20, ${(id + 100) * 255}, ${(id + 1) * 155}, 1.0)`
-        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
+        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 1.5), 10, 0, 2 * Math.PI)
         ctx.stroke()
-        ctx.lineTo(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
+        //ctx.lineTo(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
-        ctx.stroke()
+        //ctx.stroke()
         //ctx.closePath()
         //ctx.beginPath()
       }
@@ -153,11 +150,9 @@ function generateItem(id) {
     currentPosition = -1
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
- 
+    
     ctx.fillStyle = 'rgba(220, 10, 20, 1.0)'
-    ctx.arc(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
     ctx.fill()
-    //ctx.closePath()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'

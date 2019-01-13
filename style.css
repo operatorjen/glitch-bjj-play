@@ -40,10 +40,16 @@ li {
   background-color: rgba(200, 230, 210, 0.1);
   width: 100px;
   color: #eee;
+  opacity: 0.3;
 }
 
 li.selected {
   background-color: rgb(20, 200, 150);  
+  color: rgb(200, 100, 10);
+}
+
+li:hover {
+  opacity: 0.8 
 }
 
 textarea {
@@ -52,4 +58,5 @@ textarea {
 
 .submitted {
   background-color: rgba(10, 200, 100, 0.8);  
+  opacity: 1.0;
 }
