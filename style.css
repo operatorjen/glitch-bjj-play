@@ -36,12 +36,10 @@ li {
   padding: 5px 3px;
   text-align: center;
   margin: 2px;
-  font-size: 1rem;
-  background-color: rgba(200, 230, 210, 0.5);
+  font-size: 0.9rem;
+  background-color: rgba(200, 230, 210, 0.1);
   width: 100px;
-  color: #111;
-  border: 2px solid #111;
-  text-transform: uppercase;
+  color: #eee;
 }
 
 li.selected {
