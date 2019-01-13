@@ -125,19 +125,22 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        if (id > 0) {
-          ctx.moveTo(Math.abs(Math.sin((id + 100) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
-        }
         //ctx.beginPath()
-        ctx.fillStyle = `rgba(20, ${(id + 100) * 255}, ${(id + 1) * 155}, 1.0)`
-        ctx.arc(Math.abs(Math.sin((id + 100) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
-        ctx.fill()
-        ctx.lineTo(Math.abs(Math.sin((id + 100) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
-        //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         ctx.strokeWidth = 10
-        ctx.strokeStyle = `rgba(20, ${(id + 100) * 255}, ${(id + 1) * 155}, 1.0)`
+        ctx.strokeStyle = `rgb(${id * 0.1 * 100}, id * 255}, id * 100)`
+        
+        if (id > 0) {
+          ctx.lineTo(Math.abs(Math.sin((id + 99) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
+        }
         ctx.stroke()
-        ctx.closePath()
+        
+        //ctx.fillStyle = `rgba(20, ${(id + 100) * 255}, ${(id + 1) * 155}, 1.0)`
+        ctx.arc(Math.abs(Math.sin((id + 100) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
+        ctx.stroke()
+        ctx.lineTo(Math.abs(Math.sin((id + 100) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
+        //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
+        ctx.stroke()
+        //ctx.closePath()
         //ctx.beginPath()
       }
     }
@@ -147,10 +150,10 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
  
-    ctx.fillStyle = `rgba(220, 10, ${(id + 100) * 255}, 1.0)`
-    ctx.arc(Math.abs(Math.sin((id + 1) * 110) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
+    ctx.fillStyle = 'rgba(220, 10, 20, 1.0)'
+    ctx.arc(Math.abs(Math.sin((id + 100) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2), 10, 0, 2 * Math.PI)
     ctx.fill()
-    ctx.closePath()
+    //ctx.closePath()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'
