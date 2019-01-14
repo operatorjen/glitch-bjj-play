@@ -105,6 +105,10 @@ const spositions = {
   22: {
     name: 'ezekiel choke',
     start: false
+  },
+  23: {
+    name: 'wrist lock',
+    start: false
   }
 }
 
