@@ -110,16 +110,19 @@ let lastX = 0
 let lastY = 0
 
 function calc(id) {
-  return [Math.abs(Math.sin(id * 50) * 300 + (ctx.width / 2.5)),
-    y: Math.abs(Math.cos(id * 50) * 300 + (ctx.height / 2.5))
-  }
+  return [
+    Math.abs(Math.sin(id * 50) * 300 + (ctx.width / 2.5)),
+    Math.abs(Math.cos(id * 50) * 300 + (ctx.height / 2.5) + 60)
+  ]
 }
+
+ctx.fillStyle = 'rgb(100, 100, 100)'
 
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
   
-  ctx.strokeWidth = 10
+  //ctx.strokeWidth = 10
   ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 100})`
   
   if (spositions[id]) {
@@ -141,17 +144,19 @@ function generateItem(id) {
         
         // render selected visual
         //ctx.beginPath()
-        ctx.strokeWidth = 10
-        ctx.fillStyle = `rgb(${(id * 2) + 10}, ${(id * 2) + 10}, ${id + 50})`
+        //ctx.strokeWidth = 10
+        //ctx.fillStyle = `rgb(${(id * 2) + 10}, ${(id * 2) + 10}, ${id + 50})`
         //ctx.fillStyle = `rgb(210, 20, 180)`
-        ctx.fill()
+        //ctx.fill()
         
-        [lastX, lastY] = calc(id)
+        const xy = calc(id)
+        lastX = xy[0]
+        lastY = xy[1]
         
         ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
 
         //ctx.stroke()
-        ctx.fill()
+        //ctx.fill()
         //ctx.lineTo(lastX, lastY)
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         ctx.stroke()
@@ -165,9 +170,8 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
     
-    ctx.strokeStyle = 'rgba(220, 10, 120, 1.0)'
-    ctx.fillStyle = 'rgba(220, 20, 220, 1.0)'
-
+    ctx.strokeStyle = `rgb(255, ${(id + 1) * 55}, ${id * 100})`
+    
     let restart = document.createElement('button')
     restart.textContent = 'restart'
     restart.onclick = function (ev) {
@@ -193,9 +197,10 @@ let count = Object.keys(spositions).length - 1
 function render() {
   //console.log('count', count)
   if (count > -1) {
-    ctx.strokeWidth = 1
-    ctx.strokeStyle = `rgb(10, 120, 180)`    
-    ctx.arc(Math.abs(Math.sin(count * 50) * 300 + (window.innerWidth / 2.5)), Math.abs(Math.cos(count * 50) * 300 + (window.innerHeight / 2.5)), 10, 0, 2 * Math.PI)
+    ctx.strokeWidth = 10
+
+    const xy = calc(count)
+    ctx.arc(xy[0], xy[1], 10, 0, 2 * Math.PI)
     //ctx.stroke()
     //ctx.lineTo(Math.abs(Math.sin(count) * 500), Math.abs(Math.cos(count) * 500))
     ctx.stroke()
