@@ -23,7 +23,8 @@ canvas {
 }
 
 #rows {
-  display: flex;  
+  display: flex; 
+  flex-wrap: wrap;
 }
 
 ul {
