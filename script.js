@@ -136,12 +136,12 @@ function generateItem(id) {
         // render selected visual
         //ctx.beginPath()
         ctx.strokeWidth = 1
-        ctx.fillStyle = `rgb(${id * 100}, 200, ${id * 50})`
+        ctx.fillStyle = `rgb(${(id * 2) + 10}, ${(id * 2) + 10}, ${id + 50})`
         //ctx.fillStyle = `rgb(210, 20, 180)`
         //ctx.fill()
         
-        lastX = Math.abs(Math.sin(id * 50) * 300 + (window.innerWidth / 2))
-        lastY = Math.abs(Math.cos(id * 50) * 300 + (window.innerHeight / 2))
+        lastX = Math.abs(Math.sin(id * 50) * 300 + (window.innerWidth / 2.5))
+        lastY = Math.abs(Math.cos(id * 50) * 300 + (window.innerHeight / 2.5))
         
         ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
 
