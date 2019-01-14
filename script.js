@@ -140,16 +140,17 @@ function generateItem(id) {
         ctx.fillStyle = `rgb(210, 20, 180)`
         //ctx.fill()
         
-        lastX = Math.abs(Math.sin(id) * window.innerWidth / 1.7)
-        lastY = Math.abs(Math.cos((id + 10) * 100) * window.innerHeight / 1.5)
+        lastX = Math.abs(Math.sin(id * 50) * 300 + 400)
+        lastY = Math.abs(Math.cos(id * 50) * 300 + 300)
         
-        ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
+        ctx.arc(lastX, lastY, 10, 0, 2 * Math.PI)
+
         //ctx.stroke()
         ctx.fill()
-        ctx.lineTo(lastX, lastY)
+        //ctx.lineTo(lastX, lastY)
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
-        //ctx.stroke()
-        ctx.closePath()
+        ctx.stroke()
+        //ctx.closePath()
         //ctx.beginPath()
       }
     }
@@ -173,23 +174,30 @@ function generateItem(id) {
 }
 
 function renderStartPositions() {
-  let count = 0
   for (let k in spositions) {
     if (spositions[k].start) {
       let pos = generateItem(k)
       spositionsEl.appendChild(pos) 
     }
-    
-    //ctx.beginPath()
-    ctx.strokeWidth = 10
-    ctx.strokeStyle = `rgb(10, 120, 180)`    
-    ctx.arc(Math.abs(Math.sin(count) * window.innerWidth / 1.7), Math.abs(Math.cos((count + 10) * 100) * window.innerHeight / 1.5), 20, 0, 2 * Math.PI)
-    //ctx.stroke()
-    ctx.lineTo(Math.abs(Math.sin(count) * window.innerWidth / 1.7), Math.abs(Math.cos((count + 10) * 100) * window.innerHeight / 1.5))
-    ctx.stroke()
-    count++
   }
 }
+
+let count = 0
+
+function render() {
+  ctx.strokeWidth = 1
+  ctx.strokeStyle = `rgb(10, 120, 180)`    
+  ctx.arc(Math.abs(Math.sin(count * 50) * 300 + 400), Math.abs(Math.cos(count * 50) * 300 + 300), 10, 0, 2 * Math.PI)
+  //ctx.stroke()
+  //ctx.lineTo(Math.abs(Math.sin(count) * 500), Math.abs(Math.cos(count) * 500))
+  ctx.stroke()
+  count++
+  
+  
+  window.requestAnimationFrame(render)
+}
+
+render()
 
 renderStartPositions()
 
