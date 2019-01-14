@@ -35,7 +35,7 @@ const spositions = {
     start: true
   },
   5: {
-    name: 'leg pass over knee',
+    name: 'knee guard pass',
     start: false
   },
   6: {
@@ -101,6 +101,10 @@ const spositions = {
   21: {
     name: 'flower sweep',
     start: false
+  },
+  22: {
+    name: 'ezekiel choke',
+    start: false
   }
 }
 
@@ -123,7 +127,7 @@ function generateItem(id) {
   pos.setAttribute('data-value', id)
 
   //ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 50})`
-  ctx.fillStyle = `rgba(${(id * Math.random()) * 100}, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
+  ctx.strokeStyle = `rgba(${(id * Math.random()) * 100}, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
   
   if (spositions[id]) {
     pos.textContent = spositions[id].name
@@ -144,9 +148,9 @@ function generateItem(id) {
         lastX = xy[0]
         lastY = xy[1]
         
-        ctx.arc(lastX, lastY, 25, 0, 2 * Math.PI)
-        ctx.lineTo(lastX, lastY)
-        ctx.fill()
+        ctx.arc(lastX, lastY, 22, 0, 2 * Math.PI)
+        //ctx.lineTo(lastX, lastY)
+        ctx.stroke()
       }
     }
   } else {
@@ -155,9 +159,9 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
     
-    ctx.fillStyle = `rgba(255, ${(id + 1) * 55}, ${id * 100}, 0.5)`
-    ctx.strokeStyle = `rgb(255, ${(id + 1) * 55}, ${id * 100})`
-    ctx.fill()
+    //ctx.fillStyle = `rgba(225, ${(id + 1) * 55}, ${id * 110}, 0.5)`
+    ctx.strokeStyle = `rgb(225, ${(id + 1) * 55}, ${id * 120})`
+    ctx.stroke()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'
