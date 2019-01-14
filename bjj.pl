@@ -19,12 +19,17 @@ nameMap(16, 'triangle choke').
 nameMap(17, 'cross body choke').
 nameMap(18, 't-position hip throw').
 nameMap(19, 'double leg takedown').
+nameMap(20, 'scissor sweep').
+nameMap(21, 'flower sweep').
+nameMap(22, 'ezekiel choke').
 
 nextMoves(0, 5).
 nextMoves(0, 6).
+nextMoves(0
+nextMoves(1, 2).
 nextMoves(1, 3).
-nextMoves(1, 17).
 nextMoves(1, 15).
+nextMoves(1, 17).
 nextMoves(2, 0).
 nextMoves(2, 3).
 nextMoves(2, 15).
@@ -36,6 +41,7 @@ nextMoves(3, 12).
 nextMoves(3, 13).
 nextMoves(3, 15).
 nextMoves(3, 17).
+nextMoves(3, 22).
 nextMoves(4, 9).
 nextMoves(4, 15).
 nextMoves(5, 1).
