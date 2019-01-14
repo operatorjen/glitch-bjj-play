@@ -111,8 +111,8 @@ let lastY = 0
 
 function calc(id) {
   return [
-    Math.abs(Math.sin(id * 50) * 300 + (ctx.width / 2.5)),
-    Math.abs(Math.cos(id * 50) * 300 + (ctx.height / 2.5) + 60)
+    Math.abs(Math.sin(id * 30) * 180 + (ctx.width / 3)),
+    Math.abs(Math.cos(id * 30) * 180 + (ctx.height / 2) + 60)
   ]
 }
 
@@ -121,9 +121,9 @@ ctx.fillStyle = 'rgb(100, 100, 100)'
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
-  
-  //ctx.strokeWidth = 10
+
   ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 100})`
+  ctx.fillStyle = `rgba(${(id + 30) * 255}, ${(id + 30) * 255}, ${id + 50}, 0.3)`
   
   if (spositions[id]) {
     pos.textContent = spositions[id].name
@@ -136,32 +136,17 @@ function generateItem(id) {
         currentRow++
         row.setAttribute('data-row', currentRow)
         rows.appendChild(row)
-        currentPosition = ev.target.getAttribute('data-value')  
-        console.log(currentPosition)
-
+        currentPosition = ev.target.getAttribute('data-value')
         currentPosition = currentPosition != null ? currentPosition : 'Y'
         nextMoves(currentPosition)
-        
-        // render selected visual
-        //ctx.beginPath()
-        //ctx.strokeWidth = 10
-        //ctx.fillStyle = `rgb(${(id * 2) + 10}, ${(id * 2) + 10}, ${id + 50})`
-        //ctx.fillStyle = `rgb(210, 20, 180)`
-        //ctx.fill()
-        
+
         const xy = calc(id)
         lastX = xy[0]
         lastY = xy[1]
         
-        ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
-
-        //ctx.stroke()
-        //ctx.fill()
-        //ctx.lineTo(lastX, lastY)
-        //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
-        ctx.stroke()
-        //ctx.closePath()
-        //ctx.beginPath()
+        ctx.arc(lastX, lastY, 25, 0, 2 * Math.PI)
+        ctx.lineTo(lastX, lastY)
+        ctx.fill()
       }
     }
   } else {
@@ -170,7 +155,9 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
     
+    ctx.fillStyle = `rgba(255, ${(id + 1) * 55}, ${id * 100}, 0.5)`
     ctx.strokeStyle = `rgb(255, ${(id + 1) * 55}, ${id * 100})`
+    ctx.fill()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'
@@ -195,17 +182,20 @@ function renderStartPositions() {
 let count = Object.keys(spositions).length - 1
 
 function render() {
-  //console.log('count', count)
   if (count > -1) {
-    ctx.strokeWidth = 10
+    ctx.strokeStyle = 'rgb(10, 160, 200)'
+    ctx.strokeWidth = 1
 
     const xy = calc(count)
-    ctx.arc(xy[0], xy[1], 10, 0, 2 * Math.PI)
+    ctx.arc(xy[0], xy[1], 20, 0, 2 * Math.PI)
     //ctx.stroke()
-    //ctx.lineTo(Math.abs(Math.sin(count) * 500), Math.abs(Math.cos(count) * 500))
+    ctx.lineTo(xy[0], xy[1])
     ctx.stroke()
     count--
     window.requestAnimationFrame(render)
+  } else {
+    ctx.closePath()
+    ctx.beginPath()
   }
 }
 

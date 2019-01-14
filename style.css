@@ -4,14 +4,14 @@ body {
   font-family: monospace;
   margin: 0;
   padding: 10px;
-  background-color: rgb(20, 210, 220);
+  background-color: rgb(40, 120, 180);
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: transparent;
 }
 
 #wrapper {
