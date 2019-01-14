@@ -131,14 +131,14 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        //ctx.beginPath()
-        ctx.strokeWidth = 10
+        ctx.beginPath()
+        ctx.strokeWidth = 1
   
         ctx.strokeStyle = `rgb(10, 200, 180)`
         
-        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * 500), Math.abs(Math.cos((id + 1) * 10) * 500), 20, 0, 100 * Math.PI)
+        ctx.arc(Math.abs(Math.sin((id + 10) * 10) * window.innerWidth / 1.5), Math.abs(Math.sin((id + 1) * 100) * window.innerHeight / 1.4), 20, 0, 2 * Math.PI)
         ctx.stroke()
-        //ctx.lineTo(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
+        ctx.lineTo(Math.abs(Math.sin((id + 10) * 10) * ctx.width / 1.5), Math.abs(Math.cos((id) * 10) * ctx.height / 2))
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         //ctx.stroke()
         //ctx.closePath()
@@ -166,11 +166,19 @@ function generateItem(id) {
 }
 
 function renderStartPositions() {
+  let count = 0
   for (let k in spositions) {
     if (spositions[k].start) {
       let pos = generateItem(k)
       spositionsEl.appendChild(pos) 
     }
+    
+    ctx.beginPath()
+    ctx.strokeWidth = 1
+    ctx.strokeStyle = `rgb(210, 20, 180)`    
+    ctx.arc(Math.abs(Math.sin((count + 10) * 10) * window.innerWidth / 1.5), Math.abs(Math.sin((count + 1) * 100) * window.innerHeight / 1.4), 20, 0, 2 * Math.PI)
+    ctx.stroke()
+    count++
   }
 }
 
