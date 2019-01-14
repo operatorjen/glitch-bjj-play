@@ -4,7 +4,7 @@ nameMap(1, 'side mount').
 nameMap(2, 'half guard').
 nameMap(3, 'full mount').
 nameMap(4, 'back attack').
-nameMap(5, 'leg pass over knee').
+nameMap(5, 'knee guard pass').
 nameMap(6, 'cross collar choke (underhand / underhand)').
 nameMap(7, 'cross collar choke (overhand / overhand)').
 nameMap(8, 'cross collar choke (underhand / overhand)').
