@@ -41,7 +41,7 @@ li {
   background-color: rgba(250, 250, 250, 0.8);
   width: 100px;
   color: #111;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 li.selected {

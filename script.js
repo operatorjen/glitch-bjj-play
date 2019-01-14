@@ -221,9 +221,11 @@ function show(id) {
   })
 }
 
+/*
 window.onresize = function () {
   canvas.width = ctx.width = window.innerWidth
   canvas.height = ctx.height = window.innerHeight
   count = Object.keys(spositions).length - 1
   render()
 }
+*/
