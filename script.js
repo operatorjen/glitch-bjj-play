@@ -134,16 +134,16 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        ctx.beginPath()
+        //ctx.beginPath()
         ctx.strokeWidth = 1
-        //ctx.fillStyle = `rgb(10, 200, 180)`
-        ctx.fillStyle = `rgb(210, 20, 180)`
+        ctx.fillStyle = `rgb(${id * 100}, 200, ${id * 50})`
+        //ctx.fillStyle = `rgb(210, 20, 180)`
         //ctx.fill()
         
-        lastX = Math.abs(Math.sin(id * 50) * 300 + 400)
-        lastY = Math.abs(Math.cos(id * 50) * 300 + 300)
+        lastX = Math.abs(Math.sin(id * 50) * 300 + (window.innerWidth / 2))
+        lastY = Math.abs(Math.cos(id * 50) * 300 + (window.innerHeight / 2))
         
-        ctx.arc(lastX, lastY, 10, 0, 2 * Math.PI)
+        ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
 
         //ctx.stroke()
         ctx.fill()
@@ -182,17 +182,18 @@ function renderStartPositions() {
   }
 }
 
-let count = 0
+let count = spositions.length
 
 function render() {
-  ctx.strokeWidth = 1
-  ctx.strokeStyle = `rgb(10, 120, 180)`    
-  ctx.arc(Math.abs(Math.sin(count * 50) * 300 + 400), Math.abs(Math.cos(count * 50) * 300 + 300), 10, 0, 2 * Math.PI)
-  //ctx.stroke()
-  //ctx.lineTo(Math.abs(Math.sin(count) * 500), Math.abs(Math.cos(count) * 500))
-  ctx.stroke()
-  count++
-  
+  if (count > 0) {
+    ctx.strokeWidth = 1
+    ctx.strokeStyle = `rgb(10, 120, 180)`    
+    ctx.arc(Math.abs(Math.sin(count * 50) * 300 + 400), Math.abs(Math.cos(count * 50) * 300 + 300), 10, 0, 2 * Math.PI)
+    //ctx.stroke()
+    //ctx.lineTo(Math.abs(Math.sin(count) * 500), Math.abs(Math.cos(count) * 500))
+    ctx.stroke()
+    count--
+  }
   
   window.requestAnimationFrame(render)
 }
