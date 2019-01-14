@@ -115,19 +115,20 @@ let lastY = 0
 
 function calc(id) {
   return [
-    Math.abs(Math.sin(id * 30) * 180 + (ctx.width / 3)),
-    Math.abs(Math.cos(id * 30) * 180 + (ctx.height / 2) + 60)
+    Math.abs(Math.sin(id * 50) * 180 + (ctx.width / 2)),
+    Math.abs(Math.cos(id * 50) * 180 + (ctx.height / 2) + 60)
   ]
 }
-
-ctx.fillStyle = 'rgb(100, 100, 100)'
 
 function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
 
   //ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 50})`
-  ctx.strokeStyle = `rgba(${(id * Math.random()) * 100}, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
+  //ctx.strokeStyle = `rgba(20, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
+  ctx.strokeStyle = 'rgb(255, 255, 200)'
+  ctx.fillStyle = 'rgb(255, 100, 200)'
+  
   
   if (spositions[id]) {
     pos.textContent = spositions[id].name
@@ -187,14 +188,12 @@ let count = Object.keys(spositions).length - 1
 
 function render() {
   if (count > -1) {
-    ctx.strokeStyle = 'rgb(10, 160, 200)'
-    ctx.strokeWidth = 1
+    ctx.fillStyle = 'rgba(10, 160, 200, 0.3)'
+    ctx.strokeWidth = 10
 
     const xy = calc(count)
-    ctx.arc(xy[0], xy[1], 20, 0, 2 * Math.PI)
-    //ctx.stroke()
-    ctx.lineTo(xy[0], xy[1])
-    ctx.stroke()
+    ctx.arc(xy[0], xy[1], 15, 0, 2 * Math.PI)
+    ctx.fill()
     count--
     window.requestAnimationFrame(render)
   } else {
@@ -202,7 +201,6 @@ function render() {
     ctx.beginPath()
   }
 }
-
 
 renderStartPositions()
 render()
