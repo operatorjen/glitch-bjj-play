@@ -134,7 +134,7 @@ function generateItem(id) {
         nextMoves(currentPosition)
         
         // render selected visual
-        //ctx.beginPath()
+        ctx.beginPath()
         ctx.strokeWidth = 1
         //ctx.fillStyle = `rgb(10, 200, 180)`
         ctx.strokeStyle = `rgb(10, 200, 180)`
@@ -148,7 +148,7 @@ function generateItem(id) {
         ctx.lineTo(lastX, lastY)
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         //ctx.stroke()
-        //ctx.closePath()
+        ctx.closePath()
         //ctx.beginPath()
       }
     }
@@ -158,11 +158,8 @@ function generateItem(id) {
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
     
-    ctx.fillStyle = 'rgba(220, 10, 20, 1.0)'
-    ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
-    ctx.stroke()
-    ctx.fill()
-    
+    ctx.strokeStyle = 'rgba(220, 10, 20, 1.0)'
+
     let restart = document.createElement('button')
     restart.textContent = 'restart'
     restart.onclick = function (ev) {
@@ -183,11 +180,11 @@ function renderStartPositions() {
     }
     
     //ctx.beginPath()
-    ctx.strokeWidth = 1
-    ctx.strokeStyle = `rgb(210, 20, 180)`    
-    ctx.arc(Math.abs(Math.sin((count + 10) * 10) * window.innerWidth / 1.5), Math.abs(Math.cos((count + 1) * 100) * window.innerHeight / 1.4), 20, 0, 2 * Math.PI)
-    ctx.stroke()
-    ctx.lineTo(Math.abs(Math.sin((count + 10) * 10) * window.innerWidth / 1.5), Math.abs(Math.cos((count + 1) * 100) * window.innerHeight / 1.4))
+    ctx.strokeWidth = 10
+    ctx.strokeStyle = `rgb(10, 120, 180)`    
+    ctx.arc(Math.abs(Math.sin(count) * window.innerWidth / 1.7), Math.abs(Math.cos((count + 10) * 100) * window.innerHeight / 1.5), 20, 0, 2 * Math.PI)
+    //ctx.stroke()
+    ctx.lineTo(Math.abs(Math.sin(count) * window.innerWidth / 1.7), Math.abs(Math.cos((count + 10) * 100) * window.innerHeight / 1.5))
     ctx.stroke()
     count++
   }
