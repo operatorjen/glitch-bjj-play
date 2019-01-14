@@ -137,14 +137,15 @@ function generateItem(id) {
         ctx.beginPath()
         ctx.strokeWidth = 1
         //ctx.fillStyle = `rgb(10, 200, 180)`
-        ctx.strokeStyle = `rgb(10, 200, 180)`
+        ctx.fillStyle = `rgb(210, 20, 180)`
+        //ctx.fill()
         
-        lastX = Math.abs(Math.sin((id + 10) * 10) * window.innerWidth / 1.5)
-        lastY = Math.abs(Math.cos((id + 1) * 100) * window.innerHeight / 1.4)
+        lastX = Math.abs(Math.sin(id) * window.innerWidth / 1.7)
+        lastY = Math.abs(Math.cos((id + 10) * 100) * window.innerHeight / 1.5)
         
         ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
-        ctx.stroke()
-        //ctx.fill()
+        //ctx.stroke()
+        ctx.fill()
         ctx.lineTo(lastX, lastY)
         //console.log(Math.abs(Math.sin((id + 1) * 10) * ctx.width / 2), Math.abs(Math.cos((id + 1) * 10) * ctx.height / 2))
         //ctx.stroke()
