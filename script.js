@@ -122,8 +122,8 @@ function generateItem(id) {
   let pos = document.createElement('li')
   pos.setAttribute('data-value', id)
 
-  ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 100})`
-  ctx.fillStyle = `rgba(${(id + 30) * 255}, ${(id + 30) * 255}, ${id + 50}, 0.3)`
+  //ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 50})`
+  ctx.fillStyle = `rgba(${(id * Math.random()) * 100}, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
   
   if (spositions[id]) {
     pos.textContent = spositions[id].name
