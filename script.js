@@ -135,6 +135,7 @@
     ctx.fillStyle = 'rgb(255, 100, 200)'
 
     if (spositions[id]) {
+      console.log(id)
       pos.textContent = spositions[id].name
       pos.setAttribute('data-row', currentRow)
       pos.onclick = function (ev) {
@@ -160,9 +161,10 @@
           lastX = xy[0]
           lastY = xy[1]
 
-          ctx.arc(lastX, lastY, 22, 0, 2 * Math.PI)
+          ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
           //ctx.lineTo(lastX, lastY)
           ctx.stroke()
+          
         }
       }
     } else {
@@ -174,6 +176,7 @@
       // ctx.fillStyle = `rgba(225, ${(id + 1) * 55}, ${id * 110}, 0.5)`
       ctx.fillStyle = `rgb(225, 50, 150)`
       ctx.strokeStyle = `rgb(225, 50, 10)`
+     // ctx.arc(lastX, lastY, 20, 0, 2 * Math.PI)
       ctx.stroke()
       ctx.fill()
 
