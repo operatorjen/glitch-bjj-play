@@ -16,7 +16,7 @@
       rotationEWMaxDeg: 45,
       rotationNSMinDeg: 0,
       rotationNSMaxDeg: 25,
-      length: 5
+      length: 2
     },
     shoulders: {
       dependent: ['knee', 'ankle'],
@@ -24,7 +24,7 @@
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 0,
       rotationNSMaxDeg: 180,
-      length: 2
+      length: 1
     },
     core: {
       dependent: ['hips', 'shoulders'],
@@ -32,7 +32,7 @@
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 10,
       rotationNSMaxDeg: 170,
-      length: 20
+      length: 10
     },
     thigh: {
       dependent: ['hips', 'knee'],
@@ -56,14 +56,15 @@
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 0,
       rotationNSMaxDeg: 180,
-      length: 1
+      length: 0.5
     },
     foot: {
       dependent: ['ankle'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 30,
-      rotationNSMaxDeg: 150 
+      rotationNSMaxDeg: 150,
+      length: 1
     },
     upper_arm: {
       dependent: ['shoulders', 'elbow'],
@@ -71,6 +72,7 @@
       rotationWMaxDeg: 180,
       rotationNMinDeg: 0,
       rotationSMaxDeg: 170,
+      length: 4
     },
     lower_arm: {
       dependent: ['elbow', 'wrist'],
@@ -78,6 +80,15 @@
       rotationWMaxDeg: 180,
       rotationNMinDeg: 10,
       rotationSMaxDeg: 170,
+      length: 4
+    },
+    elbow: {
+      dependent: ['lower_arm', 'upper_arm'],
+      rotationEMinDeg: 0,
+      rotationWMaxDeg: 180,
+      rotationNMinDeg: 10,
+      rotationSMaxDeg: 170,
+      length: 0.3
     },
     wrist: {
       dependent: ['lower_arm'],
@@ -85,6 +96,7 @@
       rotationWMaxDeg: 180,
       rotationNMinDeg: 10,
       rotationSMaxDeg: 170,
+      length: 0.3
     },
     hips: {
       dependent: ['knee', 'ankle'],
