@@ -16,23 +16,25 @@
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 335,
       rotationNSMaxDeg: 205,
-      x:,
-      y:
+      length: 10
     },
     core: {
       dependent: ['hips', 'shoulders'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 345,
-      rotationNSMaxDeg: 255
+      rotationNSMaxDeg: 255,
+      length: 20
     },
-    leg: {
-      dependent: 'hips',
+    thigh: {
+      dependent: ['hips', 'knee'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 360,
-      rotationNSMaxDeg: 180
+      rotationNSMaxDeg: 180,
+      length: 
     },
+    c
     arm: {
       dependent: 'shoulders',
       rotationEWMinDeg: 0,
