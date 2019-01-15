@@ -162,12 +162,10 @@ function generateItem(id) {
     currentPosition = -1
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
-    const xy = calc(id)
+
     // ctx.fillStyle = `rgba(225, ${(id + 1) * 55}, ${id * 110}, 0.5)`
     ctx.fillStyle = `rgb(225, 50, 150)`
     ctx.strokeStyle = `rgb(225, 50, 10)`
-    
-    ctx.arc(xy[0], xy[1], 22, 0, 2 * Math.PI)
     ctx.stroke()
     ctx.fill()
     
