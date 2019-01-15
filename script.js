@@ -129,10 +129,9 @@ function generateItem(id) {
   pos.setAttribute('data-value', id)
 
   //ctx.strokeStyle = `rgb(${(id + 1) * 255}, ${(id + 1) * 255}, ${id * 50})`
-  //ctx.strokeStyle = `rgba(20, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
-  ctx.strokeStyle = 'rgb(255, 255, 200)'
+  //ctx.strokeStyle = `rgba(${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, ${(id * Math.random()) * 200}, 0.3)`
+  ctx.strokeStyle = 'rgb(155, 205, 200)'
   ctx.fillStyle = 'rgb(255, 100, 200)'
-  
   
   if (spositions[id]) {
     pos.textContent = spositions[id].name
