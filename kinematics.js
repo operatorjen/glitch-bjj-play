@@ -13,34 +13,77 @@
     neck: {
       dependent: 'shoulders',
       rotationEWMinDeg: 0,
+      rotationEWMaxDeg: 45,
+      rotationNSMinDeg: 0,
+      rotationNSMaxDeg: 25,
+      length: 5
+    },
+    shoulders: {
+      dependent: ['knee', 'ankle'],
+      rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
-      rotationNSMinDeg: 335,
-      rotationNSMaxDeg: 205,
-      length: 10
+      rotationNSMinDeg: 0,
+      rotationNSMaxDeg: 180,
+      length: 2
     },
     core: {
       dependent: ['hips', 'shoulders'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
-      rotationNSMinDeg: 345,
-      rotationNSMaxDeg: 255,
+      rotationNSMinDeg: 10,
+      rotationNSMaxDeg: 170,
       length: 20
     },
     thigh: {
       dependent: ['hips', 'knee'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
-      rotationNSMinDeg: 360,
+      rotationNSMinDeg: 0,
       rotationNSMaxDeg: 180,
-      length: 
+      length: 10
     },
-    c
-    arm: {
-      dependent: 'shoulders',
+    shin: {
+      dependent: ['knee', 'ankle'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
-      rotationNSMinDeg: 360,
-      rotationNSMaxDeg: 180
+      rotationNSMinDeg: 0,
+      rotationNSMaxDeg: 180,
+    },
+    ankle: {
+      dependent: ['shin', 'foot'],
+      rotationEWMinDeg: 0,
+      rotationEWMaxDeg: 180,
+      rotationNSMinDeg: 0,
+      rotationNSMaxDeg: 180,
+      length: 2
+    },
+    foot: {
+      dependent: ['ankle'],
+      rotationEWMinDeg: 0,
+      rotationEWMaxDeg: 180,
+      rotationNSMinDeg: 30,
+      rotationNSMaxDeg: 150 
+    },
+    arm: {
+      dependent: 'shoulders',
+      rotationEMinDeg: 0,
+      rotationWMaxDeg: 180,
+      rotationNMinDeg: 90,
+      rotationSMaxDeg: 170
+    },
+    hips: {
+      dependent: ['knee', 'ankle'],
+      rotationEMinDeg: 0,
+      rotationWMaxDeg: 180,
+      rotationNMinDeg: 0,
+      rotationSMaxDeg: 20 
+    },
+    knee: {
+      dependent: ['core', 'hips'],
+      rotationEMinDeg: 0,
+      rotationWMaxDeg: 180,
+      rotationNMinDeg: 0,
+      rotationSMaxDeg: 20
     }
   }
   
