@@ -49,6 +49,10 @@ li.selected {
   color: rgb(200, 100, 10);
 }
 
+li.hide {
+  display: none;  
+}
+
 li:hover {
   opacity: 0.95
 }

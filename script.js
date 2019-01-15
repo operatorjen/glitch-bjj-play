@@ -139,7 +139,6 @@ function generateItem(id) {
     pos.onclick = function (ev) {
       // set up next row
       if (currentRow === parseInt(this.getAttribute('data-row'), 10)) {
-        this.className = 'selected'
         let row = document.createElement('ul')
         currentRow++
         row.setAttribute('data-row', currentRow)
@@ -147,6 +146,14 @@ function generateItem(id) {
         currentPosition = ev.target.getAttribute('data-value')
         currentPosition = currentPosition != null ? currentPosition : 'Y'
         nextMoves(currentPosition)
+        
+        const siblings = document.querySelectorAll(`li[data-row="${currentRow - 1}"]`)
+        
+        for (let i = 0; i < siblings.length; i++) {
+          siblings[i].className = 'hide'  
+        }
+        
+        this.className = 'selected'
         
         const xy = calc(id)
         lastX = xy[0]
