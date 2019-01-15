@@ -147,7 +147,7 @@ function generateItem(id) {
         currentPosition = ev.target.getAttribute('data-value')
         currentPosition = currentPosition != null ? currentPosition : 'Y'
         nextMoves(currentPosition)
-
+        
         const xy = calc(id)
         lastX = xy[0]
         lastY = xy[1]
@@ -162,10 +162,14 @@ function generateItem(id) {
     currentPosition = -1
     pos.className = 'submitted'
     pos.textContent = 'SUBMISSION!'
+    const xy = calc(id)
+    // ctx.fillStyle = `rgba(225, ${(id + 1) * 55}, ${id * 110}, 0.5)`
+    ctx.fillStyle = `rgb(225, 50, 150)`
+    ctx.strokeStyle = `rgb(225, 50, 10)`
     
-    //ctx.fillStyle = `rgba(225, ${(id + 1) * 55}, ${id * 110}, 0.5)`
-    ctx.strokeStyle = `rgb(225, ${(id + 1) * 55}, ${id * 120})`
+    ctx.arc(xy[0], xy[1], 22, 0, 2 * Math.PI)
     ctx.stroke()
+    ctx.fill()
     
     let restart = document.createElement('button')
     restart.textContent = 'restart'
@@ -191,12 +195,13 @@ let count = Object.keys(spositions).length - 1
 
 function render() {
   if (count > -1) {
-    ctx.fillStyle = 'rgba(10, 160, 200, 0.3)'
-    ctx.strokeWidth = 10
+    ctx.fillStyle = 'rgba(100, 140, 210, 0.1)'
+    ctx.strokeStyle = 'rgba(10, 10, 110, 0.5)'
 
     const xy = calc(count)
-    ctx.arc(xy[0], xy[1], 15, 0, 2 * Math.PI)
+    ctx.arc(xy[0], xy[1], 10, 0, 2 * Math.PI)
     ctx.fill()
+    ctx.stroke()
     count--
     window.requestAnimationFrame(render)
   } else {
