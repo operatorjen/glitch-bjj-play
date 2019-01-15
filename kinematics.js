@@ -51,20 +51,12 @@
       length: 5
     },
     ankle: {
-      dependent: ['shin', 'foot'],
+      dependent: ['shin'],
       rotationEWMinDeg: 0,
       rotationEWMaxDeg: 180,
       rotationNSMinDeg: 0,
       rotationNSMaxDeg: 180,
       length: 0.5
-    },
-    foot: {
-      dependent: ['ankle'],
-      rotationEWMinDeg: 0,
-      rotationEWMaxDeg: 180,
-      rotationNSMinDeg: 30,
-      rotationNSMaxDeg: 150,
-      length: 1
     },
     upper_arm: {
       dependent: ['shoulders', 'elbow'],
