@@ -110,6 +110,10 @@
     23: {
       name: 'wrist lock',
       start: false
+    },
+    24: {
+      name: 'omoplata',
+      start: false
     }
   }
 
